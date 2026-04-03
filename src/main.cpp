@@ -11,6 +11,9 @@ struct WordCount {
 
 // ===== Function declarations =====
 bool isPunctuation(char c);
+string toLowerAscii(string word);
+string trimPunctuation(string word);
+string removeDigits(string word);
 string sanitizeWord(string word);
 bool isStopWord(string word, vector<string> stopWords);
 vector<WordCount> updateWordCount(vector<WordCount> frequencies, string word);
@@ -28,7 +31,23 @@ bool isPunctuation(char c) {
            c == '\'';
 }
 
+string toLowerAscii(string word) {
+    return word;
+}
+
+string trimPunctuation(string word) {
+    return word;
+}
+
+string removeDigits(string word) {
+    return word;
+}
+
 string sanitizeWord(string word) {
+    word = toLowerAscii(word);
+    word = trimPunctuation(word);
+    word = removeDigits(word);
+
     return word;
 }
 
