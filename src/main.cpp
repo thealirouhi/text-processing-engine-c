@@ -41,6 +41,8 @@ vector<WordCount> sortWordCounts(vector<WordCount> frequencies) {
 int main() {
     vector<string> rawWords;
     vector<string> stopWords;
+    vector<WordCount> frequencies;
+
     string line;
 
     // ===== Read raw text =====
@@ -65,6 +67,8 @@ int main() {
         }
     }
 
+    int totalOriginal = rawWords.size();
+
     // ===== Read stop words =====
     while (getline(cin, line)) {
         if (line == "###END###") break;
@@ -85,6 +89,20 @@ int main() {
         if (!current.empty()) {
             stopWords.push_back(current);
         }
+    }
+
+    // ===== Process words =====
+    int totalFiltered = 0;
+
+    for (string w : rawWords) {
+        w = sanitizeWord(w);
+
+        if (w == "") continue;
+
+        if (isStopWord(w, stopWords)) continue;
+
+        frequencies = updateWordCount(frequencies, w);
+        totalFiltered++;
     }
 
     // temporary debug output
