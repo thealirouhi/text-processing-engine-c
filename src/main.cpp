@@ -238,6 +238,4 @@ int main() {
     for (WordCount wc : frequencies) {
         cout << wc.word << ": " << wc.count << endl;
     }
-
-    return 0;
 }
