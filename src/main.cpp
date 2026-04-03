@@ -161,52 +161,19 @@ int main() {
     vector<string> stopWordsSanitized;
     vector<WordCount> frequencies;
 
-    string line;
+    string word;
 
     // ===== Read raw text =====
-    while (getline(cin, line)) {
-        if (line == "###END###") break;
-
-        string current = "";
-
-        for (char c : line) {
-            if (c == ' ' || c == '\t') {
-                if (!current.empty()) {
-                    rawWords.push_back(current);
-                    current = "";
-                }
-            } else {
-                current += c;
-            }
-        }
-
-        if (!current.empty()) {
-            rawWords.push_back(current);
-        }
+    while (cin >> word) {
+        if (word == "###END###") break;
+        rawWords.push_back(word);
     }
 
     int totalOriginal = rawWords.size();
 
     // ===== Read stop words =====
-    while (getline(cin, line)) {
-        if (line == "###END###") break;
-
-        string current = "";
-
-        for (char c : line) {
-            if (c == ' ' || c == '\t') {
-                if (!current.empty()) {
-                    stopWords.push_back(current);
-                    current = "";
-                }
-            } else {
-                current += c;
-            }
-        }
-
-        if (!current.empty()) {
-            stopWords.push_back(current);
-        }
+    while (cin >> word) {
+        stopWords.push_back(word);
     }
 
     // ===== Process words =====
