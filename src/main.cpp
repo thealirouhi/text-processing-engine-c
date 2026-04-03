@@ -32,7 +32,17 @@ bool isPunctuation(char c) {
 }
 
 string toLowerAscii(string word) {
-    return word;
+    string result;
+
+    for (char c : word) {
+        if (c >= 'A' && c <= 'Z') {
+            result += (c + 32);
+        } else {
+            result += c;
+        }
+    }
+
+    return result;
 }
 
 string trimPunctuation(string word) {
