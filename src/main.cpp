@@ -125,6 +125,27 @@ vector<WordCount> updateWordCount(vector<WordCount> frequencies, string word) {
 }
 
 vector<WordCount> sortWordCounts(vector<WordCount> frequencies) {
+    for (int i = 0; i < frequencies.size(); i++) {
+        for (int j = i + 1; j < frequencies.size(); j++) {
+
+            bool shouldSwap = false;
+
+            if (frequencies[j].count > frequencies[i].count) {
+                shouldSwap = true;
+            }
+            else if (frequencies[j].count == frequencies[i].count &&
+                     frequencies[j].word < frequencies[i].word) {
+                shouldSwap = true;
+            }
+
+            if (shouldSwap) {
+                WordCount temp = frequencies[i];
+                frequencies[i] = frequencies[j];
+                frequencies[j] = temp;
+            }
+        }
+    }
+
     return frequencies;
 }
 
