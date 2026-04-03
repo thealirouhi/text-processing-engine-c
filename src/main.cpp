@@ -88,8 +88,15 @@ int main() {
     }
 
     // temporary debug output
-    cout << "Raw words: " << rawWords.size() << endl;
-    cout << "Stop words: " << stopWords.size() << endl;
+    cout << "=== Raw Words ===" << endl;
+    for (const string& w : rawWords) {
+        cout << w << endl;
+    }
+
+    cout << "=== Stop Words ===" << endl;
+    for (const string& w : stopWords) {
+        cout << w << endl;
+    }
 
     return 0;
 }
