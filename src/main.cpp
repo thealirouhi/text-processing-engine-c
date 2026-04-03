@@ -16,9 +16,16 @@ bool isStopWord(string word, vector<string> stopWords);
 vector<WordCount> updateWordCount(vector<WordCount> frequencies, string word);
 vector<WordCount> sortWordCounts(vector<WordCount> frequencies);
 
-// ===== Function definitions (empty for now) =====
+// ===== Function definitions =====
 bool isPunctuation(char c) {
-    return false;
+    return c == '.' ||
+           c == ',' ||
+           c == '!' ||
+           c == '?' ||
+           c == ':' ||
+           c == ';' ||
+           c == '\"' ||
+           c == '\'';
 }
 
 string sanitizeWord(string word) {
