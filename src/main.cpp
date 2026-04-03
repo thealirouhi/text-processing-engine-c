@@ -39,6 +39,33 @@ vector<WordCount> sortWordCounts(vector<WordCount> frequencies) {
 
 // ===== Main =====
 int main() {
-    cout << "Program started" << endl;
+    vector<string> rawWords;
+    string line;
+
+    // ===== Read input =====
+    while (getline(cin, line)) {
+        if (line == "###END###") break;
+
+        string current = "";
+
+        for (char c : line) {
+            if (c == ' ' || c == '\t') {
+                if (!current.empty()) {
+                    rawWords.push_back(current);
+                    current = "";
+                }
+            } else {
+                current += c;
+            }
+        }
+
+        if (!current.empty()) {
+            rawWords.push_back(current);
+        }
+    }
+
+    // temporary debug output
+    cout << "Words read: " << rawWords.size() << endl;
+
     return 0;
 }
