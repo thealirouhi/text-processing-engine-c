@@ -16,7 +16,7 @@ string trimPunctuation(string word);
 string removeNumbers(string word);
 string sanitizeWord(string word);
 bool isStopWord(string word, vector<string> stopWords);
-vector<WordCount> updateWordCount(vector<WordCount> frequencies, string word);
+vector<WordCount> updateWordCount(vector<WordCount>& frequencies, string word);
 vector<WordCount> sortWordCounts(vector<WordCount> frequencies);
 
 // ===== Function definitions =====
