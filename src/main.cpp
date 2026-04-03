@@ -112,7 +112,7 @@ bool isStopWord(string word, vector<string> stopWords) {
     return false;
 }
 
-vector<WordCount> updateWordCount(vector<WordCount> frequencies, string word) {
+vector<WordCount> updateWordCount(vector<WordCount>& frequencies, string word) {
     for (WordCount& wc : frequencies) {
         if (wc.word == word) {
             wc.count++;
