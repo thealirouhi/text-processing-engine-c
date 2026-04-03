@@ -46,7 +46,20 @@ string toLowerAscii(string word) {
 }
 
 string trimPunctuation(string word) {
-    return word;
+    int start = 0;
+    int end = word.size() - 1;
+
+    while (start <= end && isPunctuation(word[start])) {
+        start++;
+    }
+
+    while (end >= start && isPunctuation(word[end])) {
+        end--;
+    }
+
+    if (start > end) return "";
+
+    return word.substr(start, end - start + 1);
 }
 
 string removeDigits(string word) {
