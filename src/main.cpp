@@ -119,6 +119,7 @@ vector<WordCount> sortWordCounts(vector<WordCount> frequencies) {
 int main() {
     vector<string> rawWords;
     vector<string> stopWords;
+    vector<string> stopWordsSanitized;
     vector<WordCount> frequencies;
 
     string line;
@@ -170,6 +171,10 @@ int main() {
     }
 
     // ===== Process words =====
+    for (string w : stopWords) {
+        stopWordsSanitized.push_back(toLowerAscii(w));
+    }
+
     int totalFiltered = 0;
 
     for (string w : rawWords) {
@@ -177,7 +182,7 @@ int main() {
 
         if (w == "") continue;
 
-        if (isStopWord(w, stopWords)) continue;
+        if (isStopWord(w, stopWordsSanitized)) continue;
 
         frequencies = updateWordCount(frequencies, w);
         totalFiltered++;
