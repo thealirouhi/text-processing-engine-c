@@ -105,6 +105,9 @@ int main() {
         totalFiltered++;
     }
 
+    // ===== Sort =====
+    frequencies = sortWordCounts(frequencies);
+
     // ===== Output =====
     cout << "Total words original: " << totalOriginal << endl;
     cout << "Total words after filter: " << totalFiltered << endl;
