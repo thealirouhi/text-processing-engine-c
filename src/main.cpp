@@ -13,7 +13,7 @@ struct WordCount {
 bool isPunctuation(char c);
 string toLowerAscii(string word);
 string trimPunctuation(string word);
-string removeDigits(string word);
+string removeNumbers(string word);
 string sanitizeWord(string word);
 bool isStopWord(string word, vector<string> stopWords);
 vector<WordCount> updateWordCount(vector<WordCount> frequencies, string word);
@@ -62,14 +62,43 @@ string trimPunctuation(string word) {
     return word.substr(start, end - start + 1);
 }
 
-string removeDigits(string word) {
+string removeNumbers(string word) {
+    int dotCount = 0;
+    bool hasDigit = false;
+    bool isNumber = true;
+
+    for (char c : word) {
+        if (c >= '0' && c <= '9') {
+            hasDigit = true;
+            continue;
+        }
+        else if (c == '.') {
+            dotCount++;
+            if (dotCount > 1) {
+                isNumber = false;
+            }
+        }
+        else {
+            isNumber = false;
+        }
+    }
+
+    // must contain at least one digit
+    if (!hasDigit) {
+        isNumber = false;
+    }
+
+    if (isNumber) {
+        return "";
+    }
+
     return word;
 }
 
 string sanitizeWord(string word) {
     word = toLowerAscii(word);
     word = trimPunctuation(word);
-    word = removeDigits(word);
+    word = removeNumbers(word);
 
     return word;
 }
