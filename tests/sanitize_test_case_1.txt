@@ -1,0 +1,8 @@
+Hello world!!! this is a TEST 123
+numbers: 45 12.34 12.34.56 7.0 000 98.76
+edge cases: !!!start middle!!!end!!!
+mixed tokens: co-op 12a3 a12.3 100abc abc100
+tabs	and multiple   spaces should   not break
+
+###END###
+THE and Is To Be REMOVED from STOP words list
