@@ -105,15 +105,13 @@ int main() {
         totalFiltered++;
     }
 
-    // temporary debug output
-    cout << "=== Raw Words ===" << endl;
-    for (const string& w : rawWords) {
-        cout << w << endl;
-    }
+    // ===== Output =====
+    cout << "Total words original: " << totalOriginal << endl;
+    cout << "Total words after filter: " << totalFiltered << endl;
+    cout << "Word Frequencies:" << endl;
 
-    cout << "=== Stop Words ===" << endl;
-    for (const string& w : stopWords) {
-        cout << w << endl;
+    for (WordCount wc : frequencies) {
+        cout << wc.word << ": " << wc.count << endl;
     }
 
     return 0;
