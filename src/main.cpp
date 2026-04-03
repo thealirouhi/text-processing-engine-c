@@ -104,6 +104,11 @@ string sanitizeWord(string word) {
 }
 
 bool isStopWord(string word, vector<string> stopWords) {
+    for (string s : stopWords) {
+        if (s == word) {
+            return true;
+        }
+    }
     return false;
 }
 
